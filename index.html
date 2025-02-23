@@ -51,21 +51,24 @@
       transform: translateY(50px);
     }
 
-    .cta-button {
+    .discord-button {
       padding: 15px 30px;
       font-size: 1.2em;
-      background: #fff;
-      color: #ff6b00;
+      background: #7289DA;
+      color: #fff;
       border: none;
       border-radius: 30px;
       cursor: pointer;
       opacity: 0;
       transform: scale(0.8);
-      transition: transform 0.3s;
+      transition: transform 0.3s, background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    .cta-button:hover {
+    .discord-button:hover {
       transform: scale(1.1) !important;
+      background: #5b73c7;
     }
 
     .discord-section {
@@ -74,17 +77,19 @@
       background: #222;
     }
 
-    .discord-placeholder {
+    .discord-widget {
       width: 350px;
       height: 500px;
       margin: 20px auto;
-      background: #333;
       border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       opacity: 0;
       transform: translateX(-100px);
+    }
+
+    .discord-widget iframe {
+      border: none;
+      border-radius: 10px;
+      background: #333;
     }
 
     .floating-elements {
@@ -112,14 +117,19 @@
   <section class="hero">
     <div class="hero-content">
       <h1>FIVIUS</h1>
-      <button class="cta-button">ENTDECKE MEHR</button>
+      <a href="https://discord.gg/H6TFVg4tK6" class="discord-button" target="_blank">JOIN DISCORD</a>
     </div>
   </section>
 
   <section class="discord-section">
     <h2>Join Our Discord</h2>
-    <div class="discord-placeholder">
-      Discord Widget Placeholder
+    <div class="discord-widget">
+      <iframe src="https://discord.com/widget?id=536539373840105473&theme=dark" 
+              width="350" 
+              height="500" 
+              allowtransparency="true" 
+              sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+      </iframe>
     </div>
   </section>
 
@@ -182,7 +192,7 @@
       ease: "power4.out"
     });
 
-    gsap.to('.cta-button', {
+    gsap.to('.discord-button', {
       opacity: 1,
       scale: 1,
       duration: 1,
@@ -190,7 +200,7 @@
       ease: "back.out(1.7)"
     });
 
-    gsap.to('.discord-placeholder', {
+    gsap.to('.discord-widget', {
       opacity: 1,
       x: 0,
       duration: 1,
